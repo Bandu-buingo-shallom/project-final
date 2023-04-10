@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TEXT EDITITOR </title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		
+		header {
+			background-color: #271d95;
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+		}
+		
+		h1 {
+			margin: 0;
+			font-size: 32px;
+		}
+		
+		nav {
+			background-color: #eee;
+			padding: 10px 20px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+		
+		nav a {
+			color: #271d95;
+			text-decoration: none;
+			font-size: 16px;
+			margin-right: 10px;
+			padding: 5px 10px;
+			border-radius: 5px;
+			transition: background-color 0.2s ease;
+		}
+		
+		nav a:hover {
+			background-color: #ccc;
+		}
+		
+		.container {
+			max-width: 960px;
+			margin: 0 auto;
+			padding: 20px;
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: space-between;
+		}
+		
+		.text-editor {
+			flex: 1 1 50%;
+			padding: 20px;
+			border: 1px solid #333;
+		}
+		
+		.btn {
+			background-color: #333;
+			color: #fff;
+			border: none;
+			padding: 10px 20px;
+			text-align: center;
+			display: inline-block;
+			font-size: 16px;
+			margin: 10px 0;
+			cursor: pointer;
+			border-radius: 5px;
+		}
+		
+		.btn:hover {
+			background-color: #555;
+		}
+		
+		.preview {
+			flex: 1 1 50%;
+			padding: 20px;
+			border: 1px solid #333;
+		}
+		
+		footer {
+			background-color: #333;
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>TEXT EDITITOR</h1>
+	</header>
+	<nav>
+		<div>
+			<a href="editor.html" style="font-style: italic;">Textdoc</a>
+		</div>
+		<!-- <div>
+			<a href="login.html">Login</a>
+			<a href="signup.html">Signup</a>
+		</div> -->
+	</nav>
+	<div class="container">
+		<div class="text-editor">
+			<h2 style="font-size: 20px; font-weight: bolder; color: #271d95; text-align: center;">Text Editor</h2>
+			<p>A web app that allows you to create, edit, share and save text files to your device. A plain text editor that allows you to keep notes throughout the day, create a list, write or edit code without worrying about unwanted auto formatting. Copy & Paste text to and from Textdoc without formatting including unwanted characters. This allows you to clean up text before it's pasted in email or chat platforms. </p>
+			
+			<button style="color: white; background-color: black;"><a href="editor.html"> Edit Files Here</a></button>
+		</div>
+		<!-- <div class="preview">
+			<h2>Preview</h2>
+			<div id="preview-content"></div>
+		</div> -->
+	</div>
+	<footer>
+		<p>&copy; 2023</p>
+	</footer>
+	
+	<!-- <script>
+		const editoraddEventListener()'input', () => {
+		preview.innerHTML = editor.innerHTML;
+	});
+</script> -->
+

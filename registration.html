@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <script>
+        function checkSignIn() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Load saved user data from local storage
+            var savedUsers = JSON.parse(localStorage.getItem("users"));
+
+            // Check if the user exists in saved data
+            if (savedUsers && savedUsers[username]) {
+                // Check if the password matches
+                if (savedUsers[username].password === password) {
+                    alert("Login Successful!");
+                    // Redirect to index.html
+                    window.location.href = "index.html";
+                } else {
+                    alert("Incorrect Password!");
+                }
+            } else {
+                alert("Username and Password do not exist!");
+            }
+        }
+
+        function checkSignUp() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirm-password").value;
+
+            // Password regex validation
+            var passwordRegex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[A-Z]).{6,20}$/;
+
+            if (!passwordRegex.test(password)) {
+                alert(
+                    "Password should contain at least 1 capital letter, 1 numeral, 1 special character, and be between 6 to 20 characters long."
+                );
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            // Load saved user data from local storage
+            var savedUsers = JSON.parse(localStorage.getItem("users")) || {};
+
+            // Check if the user already exists
+            if (savedUsers[username]) {
+                alert("Username already exists!");
+                return;
+            }
+
+            // Add user data to saved data
+            savedUsers[username] = {
+                username: username,
+                password: password,
+            };
+
+            // Save user data to local storage
+            localStorage.setItem("users", JSON.stringify(savedUsers));
+
+            alert("User created successfully!");
+        }
+    </script>
+
+<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans:600'>
+
+<link rel="stylesheet" href="style2.css">
+
+</head>
+
+<body>
+    <h1>login page</h1>
+
+    <label for="username">Username:</label>
+    <input type="text" id="username" />
+
+    <br /><br />
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" />
+
+    <br /><br />
+
+    <div id="sign-up-section">
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" />
+
+        <br /><br />
+
+        <button onclick="checkSignUp()">Register</button>
+    </div>
+
+    <br /><br />
+
+    <button onclick="checkSignIn()">Login</button>
+
+
+    <!-- <div class="login-wrap">
+        <div class="login-html">
+          <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+          <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+          <div class="login-form">
+            <form class="sign-in-htm" action="register.php" method="GET">
+              <div class="group">
+                <label for="user" class="label">Username</label>
+                <input id="username" name="username" type="text" class="input">
+              </div>
+              <div class="group">
+                <label for="pass" class="label">Password</label>
+                <input id="password" name="password" type="password" class="input" data-type="password">
+              </div>
+              <div class="group">
+                <input id="check" type="checkbox" class="check" checked>
+                <label for="check"><span class="icon"></span> Keep me Signed in</label>
+              </div>
+              <div class="group">
+                  <a href="index.html">
+                <input type="submit" class="button" value="Sign In"></a>
+              </div>
+              <div class="hr"></div>
+              <div class="foot-lnk">
+                <a href="reset.html">Forgot Password?</a>
+              </div>
+            </form>
+            <form class="sign-up-htm" action="register.php" method="POST">
+              <div class="group">
+                <label for="user" class="label">Username</label>
+                <input id="username" name="username" type="text" class="input">
+              </div>
+              <div class="group">
+                <label for="pass" class="label">Password</label>
+                <input id="password" name="password" type="password" class="input" data-type="password">
+              </div>
+              <div class="group">
+                <label for="pass" class="label">Confirm Password</label>
+                <input id="pass" type="password" class="input" data-type="password">
+              </div>
+              <div class="group">
+                <a href="index.html">
+                <input type="submit" class="button" value="Sign Up">
+              </a>
+              </div>
+              <div class="hr"></div>
+              <div class="foot-lnk">
+                <label for="tab-1">Already Member?</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div> -->
+        
+</body>
+</html>
